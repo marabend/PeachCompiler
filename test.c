@@ -6,3 +6,4 @@ int long
 /*
 test
 */
+'a'
