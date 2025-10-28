@@ -1,0 +1,2 @@
+gdb ./main
+break lexer.c:<line-number>
