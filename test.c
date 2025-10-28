@@ -7,3 +7,5 @@ int long
 test
 */
 'a'
+
+0xAB75
