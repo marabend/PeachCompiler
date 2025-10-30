@@ -1,19 +1,15 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "compiler.h"
-
 struct compile_process *compile_process_create(const char *filename, const char *filename_out, int flags)
 {
     FILE *file = fopen(filename, "r");
-
     if (!file)
     {
         return NULL;
     }
 
     FILE *out_file = NULL;
-
     if (filename_out)
     {
         out_file = fopen(filename_out, "w");
@@ -27,7 +23,6 @@ struct compile_process *compile_process_create(const char *filename, const char 
     process->flags = flags;
     process->cfile.fp = file;
     process->ofile = out_file;
-
     return process;
 }
 
@@ -36,9 +31,9 @@ char compile_process_next_char(struct lex_process* lex_process)
     struct compile_process* compiler = lex_process->compiler;
     compiler->pos.col += 1;
     char c = getc(compiler->cfile.fp);
-    if ( c== 'n')
+    if (c == '\n')
     {
-        compiler->pos.line += 1;
+        compiler->pos.line +=1 ;
         compiler->pos.col = 1;
     }
 
